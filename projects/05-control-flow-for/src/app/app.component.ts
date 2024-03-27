@@ -32,6 +32,8 @@ import { Component } from '@angular/core';
           </p>
         </section>
       </article>
+      } @empty {
+      <p>No Listings available</p>
       }
     </section>
   `,
