@@ -15,7 +15,9 @@ import { ListingComponent } from './listing/listing.component';
 
     <article>
       @for(savedCarEntry of savedCarList; track savedCarEntry){
-      <p>{{ savedCarEntry.make }} {{ savedCarEntry.model }}</p>
+      <p>
+        {{ $index + 1 + ' ' + savedCarEntry.make }} {{ savedCarEntry.model }}
+      </p>
       }
     </article>
   `,
