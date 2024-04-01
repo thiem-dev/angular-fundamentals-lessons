@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { User } from './data';
 import { UserInfoComponent } from './user-info/user-info.component';
@@ -14,13 +14,11 @@ import { UserInfoComponent } from './user-info/user-info.component';
     }
   `,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   userService = inject(UserService);
   userData: User[] = [];
-
-  constructor() {
-    this.userService.getUserData().then((data) => {
-      this.userData = data;
-    });
+  async ngOnInit(): Promise<void> {
+    const data = await this.userService.getUserData();
+    this.userData = data;
   }
 }
